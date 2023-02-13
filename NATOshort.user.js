@@ -9,7 +9,8 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=stackoverflow.com
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 // @grant        GM_addStyle
-// @run-at       document-idle
+// @updateURL    https://github.com/tomerkal/NATO-shortcut/raw/main/NATOshort.user.js
+// @downloadURL  https://github.com/tomerkal/NATO-shortcut/raw/main/NATOshort.user.js
 // ==/UserScript==
 
 (function(){
