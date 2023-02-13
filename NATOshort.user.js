@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NATO shortcut
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.1.0
 // @description  Add a shortcut to the NATO tool in the review queues window (next to tools)
 // @author       Tomer Kalish
 // @match        https://*.stackoverflow.com/*
