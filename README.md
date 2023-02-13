@@ -8,4 +8,4 @@ This userscript is meant to save one click and a little bit of waiting. Instead 
 ### Installation
 To install this script [click here](https://github.com/tomerkal/NATO-shortcut/raw/main/NATOshort.user.js) or otherwise visit the following URL, and Greasemonkey/Tampermonkey should ask you to install it.
 
-     https://github.com/tomerkal/NATO-shortcut/raw/main/NATOshort.usr.js
+     https://github.com/tomerkal/NATO-shortcut/raw/main/NATOshort.user.js
