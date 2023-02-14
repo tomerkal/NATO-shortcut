@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NATO shortcut
 // @namespace    http://tampermonkey.net/
-// @version      1.1.1
+// @version      1.2.1
 // @description  Add a shortcut to the NATO tool in the review queues window (next to tools)
 // @author       Tomer Kalish
 // @match        https://*.stackoverflow.com/*
@@ -15,35 +15,18 @@
     'use strict';
 
     // Create the link in advance
-    var a = document.createElement('a');
+    const a = document.createElement('a');
     a.setAttribute('href', "https://stackoverflow.com/tools/new-answers-old-questions");
     a.innerHTML = "NATO";
     // Create the dot
-    var dot = document.createTextNode(' • ')
+    const dot = document.createTextNode(' • ')
 
     // Wait for the queues dropdown to be created
-    waitForElm("div.review-dialog > div > div > div > div.-right").then((elm) => {
-        elm.appendChild(dot);
-        elm.appendChild(a);
+    $(document).ajaxComplete((_0, _1, {url}) => {
+        if(url.startsWith('/topbar/review')){
+            const elm = document.querySelector("div.review-dialog > div > div > div > div.-right");
+            elm.appendChild(dot);
+            elm.appendChild(a);
+        }
     });
 })();
-
-function waitForElm(selector) {
-    return new Promise(resolve => {
-        if (document.querySelector(selector)) {
-            return resolve(document.querySelector(selector));
-        }
-
-        const observer = new MutationObserver(mutations => {
-            if (document.querySelector(selector)) {
-                resolve(document.querySelector(selector));
-                observer.disconnect();
-            }
-        });
-
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
-    });
-}
