@@ -22,8 +22,8 @@
     var dot = document.createTextNode(' • ')
 
     // Wait for the queues dropdown to be created
-    $(document).on('ajaxComplete',(_0, _1, {url}) => {
-        if(url.startsWith('/topbar/review')){
+    $(document).ajaxComplete(function (_0, _1, settings) {
+        if(settings.url.startsWith('/topbar/review')){
             const elm = document.querySelector("div.review-dialog > div > div > div > div.-right");
             elm.appendChild(dot);
             elm.appendChild(a);
