@@ -22,28 +22,11 @@
     var dot = document.createTextNode(' • ')
 
     // Wait for the queues dropdown to be created
-    waitForElm("div.-right").then((elm) => {
-        elm.appendChild(dot);
-        elm.appendChild(a);
+    $(document).on('ajaxComplete',(_0, _1, {url}) => {
+        if(url.startsWith('/topbar/review')){
+            const elm = document.querySelector("div.-right");
+            elm.appendChild(dot);
+            elm.appendChild(a);
+        }
     });
 })();
-
-function waitForElm(selector) {
-    return new Promise(resolve => {
-        if (document.querySelector(selector)) {
-            return resolve(document.querySelector(selector));
-        }
-
-        const observer = new MutationObserver(mutations => {
-            if (document.querySelector(selector)) {
-                resolve(document.querySelector(selector));
-                observer.disconnect();
-            }
-        });
-
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
-    });
-}
