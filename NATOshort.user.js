@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NATO shortcut
 // @namespace    http://tampermonkey.net/
-// @version      1.1.0
+// @version      1.2.0
 // @description  Add a shortcut to the NATO tool in the review queues window (next to tools)
 // @author       Tomer Kalish
 // @match        https://*.stackoverflow.com/*
@@ -24,7 +24,7 @@
     // Wait for the queues dropdown to be created
     $(document).on('ajaxComplete',(_0, _1, {url}) => {
         if(url.startsWith('/topbar/review')){
-            const elm = document.querySelector("div.-right");
+            const elm = document.querySelector("div.review-dialog > div > div > div > div.-right");
             elm.appendChild(dot);
             elm.appendChild(a);
         }
